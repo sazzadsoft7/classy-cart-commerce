@@ -5,7 +5,7 @@ import { Product } from '@/types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ShoppingCart, Star } from 'lucide-react';
+import { ShoppingCart, Star, ImageOff } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 
 interface ProductCardProps {
@@ -15,15 +15,25 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { addToCart } = useCart();
   const { id, name, price, imageUrl, rating, reviews, category, inStock } = product;
+  const [imageError, setImageError] = React.useState(false);
 
   return (
     <Card className="overflow-hidden h-full flex flex-col transition-all duration-200 hover:shadow-md">
-      <Link to={`/products/${id}`} className="relative overflow-hidden pt-[100%]">
-        <img
-          src={imageUrl}
-          alt={name}
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-        />
+      <Link to={`/products/${id}`} className="relative overflow-hidden pt-[100%] bg-secondary/10">
+        {imageError ? (
+          <div className="absolute inset-0 flex items-center justify-center bg-secondary/20">
+            <ImageOff className="h-12 w-12 text-muted-foreground" />
+            <span className="sr-only">{name}</span>
+          </div>
+        ) : (
+          <img
+            src={imageUrl}
+            alt={name}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+            onError={() => setImageError(true)}
+            loading="lazy"
+          />
+        )}
         {!inStock && (
           <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
             <Badge variant="destructive" className="text-sm px-2 py-1">Out of Stock</Badge>

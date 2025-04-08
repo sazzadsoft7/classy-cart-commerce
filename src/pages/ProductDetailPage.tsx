@@ -1,8 +1,8 @@
 
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { 
-  ShoppingCart, ArrowLeft, Star, Truck, RotateCcw, ShieldCheck
+  ShoppingCart, ArrowLeft, Star, Truck, RotateCcw, ShieldCheck, ImageOff
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -13,6 +13,7 @@ import ProductGrid from '@/components/product/ProductGrid';
 const ProductDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { addToCart } = useCart();
+  const [imageError, setImageError] = useState(false);
   
   const product = useMemo(() => {
     return getProductById(id || '');
@@ -51,12 +52,21 @@ const ProductDetailPage: React.FC = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Product Image */}
-        <div className="bg-secondary/30 rounded-lg overflow-hidden flex items-center justify-center p-8">
-          <img 
-            src={product.imageUrl} 
-            alt={product.name} 
-            className="max-h-96 object-contain"
-          />
+        <div className="bg-secondary/30 rounded-lg overflow-hidden flex items-center justify-center p-8 h-[400px]">
+          {imageError ? (
+            <div className="flex flex-col items-center justify-center text-muted-foreground">
+              <ImageOff className="h-16 w-16 mb-2" />
+              <p>Image not available</p>
+            </div>
+          ) : (
+            <img 
+              src={product.imageUrl} 
+              alt={product.name} 
+              className="max-h-full max-w-full object-contain"
+              onError={() => setImageError(true)}
+              loading="eager"
+            />
+          )}
         </div>
         
         {/* Product Details */}
