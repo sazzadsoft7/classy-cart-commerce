@@ -3,6 +3,7 @@ import React from 'react';
 import HeroSection from '@/components/home/HeroSection';
 import FeaturedProducts from '@/components/product/FeaturedProducts';
 import CategorySection from '@/components/product/CategorySection';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 const HomePage: React.FC = () => {
   return (
@@ -11,7 +12,6 @@ const HomePage: React.FC = () => {
       <CategorySection />
       <FeaturedProducts />
       
-      {/* Additional sections could go here */}
       <section className="py-12 bg-accent/10">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-8 items-center">
@@ -23,12 +23,61 @@ const HomePage: React.FC = () => {
             </div>
             <div className="md:w-1/2 flex justify-center">
               <img 
-                src="/placeholder.svg" 
-                alt="Free Shipping" 
-                className="max-h-60 object-contain"
+                src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?q=80&w=1000" 
+                alt="Free Shipping"
+                className="max-h-60 object-contain rounded-lg"
               />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* New Image Carousel Section */}
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl font-bold mb-6 text-center">Our Products Gallery</h2>
+          <Carousel className="mx-auto max-w-4xl">
+            <CarouselContent>
+              <CarouselItem>
+                <div className="p-1">
+                  <div className="overflow-hidden rounded-lg">
+                    <img 
+                      src="https://images.unsplash.com/photo-1570087935421-5ef75fbce5c3?q=80&w=1000" 
+                      alt="Premium Coffee Maker"
+                      className="w-full h-[400px] object-cover"
+                    />
+                  </div>
+                  <h3 className="mt-2 font-medium text-center">Premium Coffee Maker</h3>
+                </div>
+              </CarouselItem>
+              <CarouselItem>
+                <div className="p-1">
+                  <div className="overflow-hidden rounded-lg">
+                    <img 
+                      src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000" 
+                      alt="Wireless Headphones"
+                      className="w-full h-[400px] object-cover"
+                    />
+                  </div>
+                  <h3 className="mt-2 font-medium text-center">Wireless Headphones</h3>
+                </div>
+              </CarouselItem>
+              <CarouselItem>
+                <div className="p-1">
+                  <div className="overflow-hidden rounded-lg">
+                    <img 
+                      src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1000" 
+                      alt="Smartphone Pro Max"
+                      className="w-full h-[400px] object-cover"
+                    />
+                  </div>
+                  <h3 className="mt-2 font-medium text-center">Smartphone Pro Max</h3>
+                </div>
+              </CarouselItem>
+            </CarouselContent>
+            <CarouselPrevious className="left-1" />
+            <CarouselNext className="right-1" />
+          </Carousel>
         </div>
       </section>
     </div>

@@ -32,9 +32,9 @@ const HeroSection: React.FC = () => {
           <div className="relative">
             <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-primary/10 rounded-lg overflow-hidden shadow-xl">
               <img
-                src="/placeholder.svg"
-                alt="Hero Image"
-                className="w-full h-full object-cover mix-blend-overlay"
+                src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000"
+                alt="Hero Image - Premium Headphones"
+                className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-tl from-black/10 to-transparent"></div>
             </div>
