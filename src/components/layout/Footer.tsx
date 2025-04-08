@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
           <div className="md:col-span-1">
             <Link to="/" className="flex items-center mb-4">
               <ShoppingBag className="h-6 w-6 mr-2" />
-              <span className="text-lg font-bold">ClassyCart</span>
+              <span className="text-lg font-bold">SazzadCart</span>
             </Link>
             <p className="text-sm text-muted-foreground mb-4">
               Your one-stop shop for premium products at competitive prices. We offer a wide range of products with fast shipping and excellent customer service.
@@ -107,7 +107,7 @@ const Footer: React.FC = () => {
             <ul className="text-sm space-y-2">
               <li className="flex items-center text-muted-foreground">
                 <Mail className="h-4 w-4 mr-2" />
-                <span>support@classycart.com</span>
+                <span>support@sazzadcart.com</span>
               </li>
               <li className="flex items-center text-muted-foreground">
                 <Phone className="h-4 w-4 mr-2" />
@@ -135,7 +135,7 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-muted mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} ClassyCart. All rights reserved.
+            &copy; {new Date().getFullYear()} SazzadCart. All rights reserved.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
             <img src="https://via.placeholder.com/40x25" alt="Visa" className="h-6" />

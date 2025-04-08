@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -43,7 +42,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center gap-x-2">
             <Link to="/" className="flex items-center font-bold text-xl">
               <ShoppingBag className="h-6 w-6 mr-2" />
-              <span className="hidden sm:inline">ClassyCart</span>
+              <span className="hidden sm:inline">SazzadCart</span>
             </Link>
           </div>
 
