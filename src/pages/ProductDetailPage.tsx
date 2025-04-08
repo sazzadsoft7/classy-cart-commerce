@@ -40,6 +40,10 @@ const ProductDetailPage: React.FC = () => {
     .filter(p => p.category === product.category && p.id !== product.id)
     .slice(0, 4);
   
+  const handleAddToCart = () => {
+    addToCart(product);
+  };
+
   return (
     <div className="container mx-auto px-4 py-8">
       <Link 
@@ -52,7 +56,7 @@ const ProductDetailPage: React.FC = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Product Image */}
-        <div className="bg-secondary/30 rounded-lg overflow-hidden flex items-center justify-center p-8 h-[400px]">
+        <div className="bg-secondary/30 rounded-lg overflow-hidden flex items-center justify-center p-8 h-[400px] shadow-md">
           {imageError ? (
             <div className="flex flex-col items-center justify-center text-muted-foreground">
               <ImageOff className="h-16 w-16 mb-2" />
@@ -132,7 +136,7 @@ const ProductDetailPage: React.FC = () => {
           
           <Button 
             size="lg"
-            onClick={() => addToCart(product)}
+            onClick={handleAddToCart}
             disabled={!product.inStock}
             className="w-full sm:w-auto"
           >
